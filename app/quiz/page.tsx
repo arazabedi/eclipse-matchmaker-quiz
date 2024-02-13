@@ -59,7 +59,7 @@ const userSchema = z.object({
 		.max(255), // You may want to set a maximum length for emails
 });
 
-export const formSchema = quizSchema.merge(userSchema)
+const formSchema = quizSchema.merge(userSchema)
 
 const defaultValues = {
 	name: "Araz",
@@ -172,7 +172,7 @@ export default function Quiz() {
 
 	const onSubmit = form.handleSubmit(submitPost)
 
-	const handleChange = (name: string, valueIndex: number) => {
+	const handleChange = (name, valueIndex: number) => {
 		const answerArray = questionsObject[name].answers;
 		const value = answerArray.length - valueIndex;
 		form.setValue(name, value.toString());
