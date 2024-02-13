@@ -116,6 +116,10 @@ export default async function Admin(props) {
 		return string.charAt(0).toUpperCase() + string.slice(1);
 	}
 
+	if (!users || users.length === 0) {
+		return <div>Loading users data...</div>;
+	}
+
 	return (
 		(userIndex < 0 || userIndex >= users.length) ? (
 			<div></div>
