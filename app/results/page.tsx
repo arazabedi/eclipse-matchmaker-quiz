@@ -61,29 +61,27 @@ export default function ResultsPage() {
 
 	return (
 		<div>
-			{/* {!email && */}
-				<Form {...form}>
-					<form onSubmit={onSubmit} className="space-y-8">
-						<FormField
-							control={form.control}
-							name="email"
-							render={({ field }) => (
-								<FormItem>
-									<FormLabel>Email</FormLabel>
-									<FormControl>
-										<Input {...field} />
-									</FormControl>
-									<FormDescription>
-										To see your compatible matches
-									</FormDescription>
-									<FormMessage />
-								</FormItem>
-							)}
-						/>
-						<Button type="submit">Submit</Button>
-					</form>
-				</Form>
-			{/* } */}
+			<Form {...form}>
+				<form onSubmit={onSubmit} className="space-y-8">
+					<FormField
+						control={form.control}
+						name="email"
+						render={({ field }) => (
+							<FormItem>
+								<FormLabel>Email</FormLabel>
+								<FormControl>
+									<Input {...field} />
+								</FormControl>
+								<FormDescription>
+									To see your compatible matches
+								</FormDescription>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+					<Button type="submit">Submit</Button>
+				</form>
+			</Form>
 			{init && <Particles
 				id="tsparticles"
 				className="absolute inset-0 opacity-50 z-0 pointer-events-none"
@@ -160,11 +158,9 @@ export default function ResultsPage() {
 				}}
 			/>
 			}
-			<Suspense>
 				<Results>
 					{email && <Admin userEmail={email} />}
 				</Results>
-			</Suspense>
 		</div>
 	)
 }

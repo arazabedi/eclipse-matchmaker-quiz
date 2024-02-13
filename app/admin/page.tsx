@@ -1,4 +1,3 @@
-import { prisma } from '@/server'
 import {
 	Card,
 	CardContent,
@@ -16,21 +15,17 @@ import {
 	TableHeader,
 	TableRow,
 } from "@/components/ui/table"
-import { Button } from "@/components/ui/button"
-import Link from 'next/link'
 
 export default async function Admin(props) {
-	// const users = (await prisma.user.findMany({})).reverse()
-
 	async function getUsers() {
-		const res = await fetch('http://localhost:3000/api/users');
+		const res = await fetch(`${process.env.VERCEL_URL}`);
 		let users = await res.json();
 		users.reverse()
 		return users
 	}
 
 	const users = await getUsers()
-	// console.log(users);
+	console.log(users);
 
 	const userIndex = users.findIndex(user => user.email === props.userEmail);
 
@@ -125,9 +120,6 @@ export default async function Admin(props) {
 			<div></div>
 		) : (
 			<div className='mt-8'>
-				{/* <Button asChild>
-					<Link className="mb-10" href="/results">Back</Link>
-				</Button> */}
 				<Card>
 					<CardHeader>
 						<CardTitle><h1>Compatibility Ratings for {users[userIndex].name}</h1></CardTitle>
@@ -163,5 +155,4 @@ export default async function Admin(props) {
 			</div>
 		)
 	);
-
 }
