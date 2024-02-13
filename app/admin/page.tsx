@@ -18,7 +18,7 @@ import {
 
 export default async function Admin(props) {
 	async function getUsers() {
-		const res = await fetch(`/api/routes`);
+		const res = await fetch(`/api/users`);
 		// console.log("/////////////////////////////////////////////////");
 		console.log(process.env.NEXT_PUBLIC_VERCEL_URL);
 		// const res = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}`);
