@@ -9,7 +9,6 @@ import {
 	navigationMenuTriggerStyle
 } from '@/components/ui/navigation-menu'
 import { useEffect, useState } from 'react'
-import styles from './Navbar.css'
 
 const Navbar = () => {
 
