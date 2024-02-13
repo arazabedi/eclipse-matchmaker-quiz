@@ -5,7 +5,6 @@
 // then the admin component will have a runtime error (see the code which handles indexes - getRankedMatches)
 
 import { useEffect, useState } from 'react'
-import { redirect } from 'next/navigation'
 import {
 	Form,
 	FormControl,

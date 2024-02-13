@@ -5,5 +5,8 @@ module.exports = {
   reactStrictMode: false,
   experimental: {
     serverComponentsExternalPackages: ['mongoose']
-  }
+  },
+	paths: {
+		"@/components/*": ["components/*"]
+	}
 }
