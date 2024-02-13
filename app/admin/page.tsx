@@ -18,10 +18,10 @@ import {
 
 export default async function Admin(props) {
 	async function getUsers() {
-		// const res = await fetch(`http://${process.env.VERCEL_URL}`);
-		console.log("/////////////////////////////////////////////////");
+		const res = await fetch(`${process.env.VERCEL_URL}/api/routes`);
+		// console.log("/////////////////////////////////////////////////");
 		console.log(process.env.NEXT_PUBLIC_VERCEL_URL);
-		const res = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}`);
+		// const res = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}`);
 		let users = await res.json();
 		users.reverse()
 		return users
