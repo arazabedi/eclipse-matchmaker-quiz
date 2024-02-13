@@ -158,9 +158,11 @@ export default function ResultsPage() {
 				}}
 			/>
 			}
+			<Suspense>
 				<Results>
 					{email && <Admin userEmail={email} />}
 				</Results>
+			</Suspense>
 		</div>
 	)
 }
