@@ -172,7 +172,7 @@ export default function Quiz() {
 
 	const onSubmit = form.handleSubmit(submitPost)
 
-	const handleChange = (name, valueIndex: number) => {
+	const handleChange = (name: string, valueIndex: number) => {
 		const answerArray = questionsObject[name].answers;
 		const value = answerArray.length - valueIndex;
 		form.setValue(name, value.toString());

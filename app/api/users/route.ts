@@ -19,3 +19,18 @@ export async function POST(request: Request) {
     })
   }
 }
+
+export async function GET(request: Request) {
+  try {
+    // Fetch all users from Prisma
+    const users = await prisma.user.findMany();
+    // console.log("Users:", users); // Add this line for logging
+
+    return NextResponse.json(users);
+  } catch (error) {
+    console.error("Error:", error); // Add this line for logging
+    return NextResponse.json('Internal Server Error', {
+      status: 500
+    })
+  }
+}

@@ -18,11 +18,10 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input";
 import { useRouter } from 'next/navigation'
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import { useSearchParams } from 'next/navigation'
-
 
 const formSchema = z.string().min(7).email({ message: "Invalid email format" }).max(255)
 
@@ -62,7 +61,7 @@ export default function ResultsPage() {
 
 	return (
 		<div>
-			{!email &&
+			{/* {!email && */}
 				<Form {...form}>
 					<form onSubmit={onSubmit} className="space-y-8">
 						<FormField
@@ -84,7 +83,7 @@ export default function ResultsPage() {
 						<Button type="submit">Submit</Button>
 					</form>
 				</Form>
-			}
+			{/* } */}
 			{init && <Particles
 				id="tsparticles"
 				className="absolute inset-0 opacity-50 z-0 pointer-events-none"
@@ -161,9 +160,11 @@ export default function ResultsPage() {
 				}}
 			/>
 			}
-			<Results>
-				{email && <Admin userEmail={email} />}
-			</Results>
+			<Suspense>
+				<Results>
+					{email && <Admin userEmail={email} />}
+				</Results>
+			</Suspense>
 		</div>
 	)
 }
