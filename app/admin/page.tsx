@@ -1,4 +1,4 @@
-import { prisma } from '@/server'
+import { prisma } from 'server'
 import {
 	Card,
 	CardContent,
@@ -6,7 +6,7 @@ import {
 	CardFooter,
 	CardHeader,
 	CardTitle,
-} from "@/components/ui/card"
+} from "components/ui/card"
 import {
 	Table,
 	TableBody,
@@ -15,8 +15,8 @@ import {
 	TableHead,
 	TableHeader,
 	TableRow,
-} from "@/components/ui/table"
-import { Button } from "@/components/ui/button"
+} from "components/ui/table"
+import { Button } from "components/ui/button"
 import Link from 'next/link'
 
 export default async function Admin(props) {
