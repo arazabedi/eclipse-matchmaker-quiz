@@ -6,7 +6,4 @@ module.exports = {
   experimental: {
     serverComponentsExternalPackages: ['mongoose']
   },
-	paths: {
-		"@/components/*": ["components/*"]
-	}
 }
